@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.9)
 project(TravelingSalesmanCpp)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 11)
 
-add_executable(TravelingSalesmanCpp src/main.cpp src/Point.cpp headers/Point.h)
+add_executable(TravelingSalesmanCpp
+        headers/Point.h
+        src/main.cpp
+        src/Point.cpp src/HamiltonianPath.cpp headers/HamiltonianPath.h src/City.cpp headers/City.h)
