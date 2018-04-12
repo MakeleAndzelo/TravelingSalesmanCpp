@@ -5,7 +5,7 @@ using namespace ts;
 vector<City> currentMinVector = vector<City>();
 double minLength = numeric_limits<double>::infinity();
 
-void HamiltonianPath::GetUsingBruteforce(vector<City> cities, int startIndex, int i = 1) {
+void HamiltonianPath::GetUsingBruteforce(vector<City> cities, int startIndex, int i) {
     if (currentMinVector.empty())
         currentMinVector.push_back(cities.at(startIndex));
 
