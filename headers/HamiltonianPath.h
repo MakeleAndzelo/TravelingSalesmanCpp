@@ -6,8 +6,9 @@
 
 namespace ts {
 class HamiltonianPath {
-    vector<City> GetUsingBruteforce(vector<City> cities, int startIndex);
-    vector<City> GetUsingNearestNeighbour(vector<City> cities, int startIndex);
+    void GetUsingBruteforce(vector<City> cities, int startIndex, int i = 1);
+    vector<City> GetUsingGreedy(vector<City> cities, int startIndex);
+    vector<City> GetUsingGraph(vector<City> cities, int startIndex);
 };
 
 }
