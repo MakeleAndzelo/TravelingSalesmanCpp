@@ -1,3 +1,4 @@
+#include <limits>
 #include "../headers/HamiltonianPath.h"
 
 using namespace ts;
@@ -32,22 +33,21 @@ vector<City> HamiltonianPath::GetUsingGreedy(vector<City> cities, int startIndex
     vector<City> newCities = vector<City>();
     newCities.push_back(cities.at((unsigned long long int) startIndex));
 
-    auto newCitiesIterator = cities.begin();
-
-    auto currentCity = *newCitiesIterator;
-    cities.erase(newCitiesIterator);
+    auto citiesIterator = cities.begin() + startIndex;
+    auto currentCity = *citiesIterator;
+    cities.erase(citiesIterator);
 
     while (!cities.empty()) {
-        City nearestCity = newCitiesIterator[0];
+        City nearestCity = *cities.begin();
         auto nearestCityIterator = cities.begin();
 
-        for (newCitiesIterator = cities.begin(); newCitiesIterator != cities.end(); newCitiesIterator++) {
+        for (citiesIterator = cities.begin(); citiesIterator != cities.end(); citiesIterator++) {
             auto distanceToNearest = currentCity.location.GetDistanceTo(&nearestCity.location);
-            auto distanceToTemp = currentCity.location.GetDistanceTo(&newCitiesIterator->location);
+            auto distanceToTemp = currentCity.location.GetDistanceTo(&citiesIterator->location);
 
             if (distanceToNearest > distanceToTemp) {
-                nearestCity = *newCitiesIterator;
-                nearestCityIterator = newCitiesIterator;
+                nearestCity = *citiesIterator;
+                nearestCityIterator = citiesIterator;
             }
         }
         cities.erase(nearestCityIterator);

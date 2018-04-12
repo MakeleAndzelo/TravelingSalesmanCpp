@@ -6,4 +6,4 @@ set(CMAKE_CXX_STANDARD 11)
 add_executable(TravelingSalesmanCpp
         headers/Point.h
         src/main.cpp
-        src/Point.cpp src/HamiltonianPath.cpp headers/HamiltonianPath.h src/City.cpp headers/City.h)
+        src/Point.cpp src/HamiltonianPath.cpp headers/HamiltonianPath.h src/City.cpp headers/City.h src/CitySeed.cpp headers/CitySeed.h)

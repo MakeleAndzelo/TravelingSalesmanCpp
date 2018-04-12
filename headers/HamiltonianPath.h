@@ -2,7 +2,7 @@
 #define TRAVELINGSALESMANCPP_HAMILTONIANPATH_H
 
 #include "City.h"
-#include <algorithm>
+#include <vector>
 
 namespace ts {
 class HamiltonianPath {
