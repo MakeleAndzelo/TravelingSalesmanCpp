@@ -9,7 +9,7 @@ vector<City> CitySeed::SeedData(int count) {
     random_device randomDevice;
 
     default_random_engine engine(randomDevice());
-    engine.seed((unsigned int)time(0));
+    engine.seed((unsigned int)time(nullptr));
     uniform_int_distribution<int> dist(0, 1000);
 
     vector<City> cities = vector<City>((unsigned long long int) count);

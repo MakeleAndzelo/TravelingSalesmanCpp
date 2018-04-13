@@ -10,7 +10,7 @@ int main() {
     CitySeed citySeed;
 
     vector<City> cities = citySeed.SeedData(5);
-    hamiltonianPath.GetUsingBruteforce(cities, 1);
+    hamiltonianPath.GetUsingBruteforce(cities, 0);
 
     cities = hamiltonianPath.GetBruteforceResult();
 
