@@ -13,7 +13,7 @@ void HamiltonianPath::GetUsingBruteforce(vector<City> cities, int startIndex, in
     if (i == cities.size()) {
         double lenght = 0.0;
         for (int j = 0; j < cities.size() - 1; ++j)
-            lenght += cities[i].location.GetDistanceTo(&cities[i + 1].location);
+            lenght += cities[i].location.GetDistanceTo(cities[i + 1].location);
         if (lenght < minLength) {
             currentMinVector = cities;
             minLength = lenght;
@@ -42,8 +42,8 @@ vector<City> HamiltonianPath::GetUsingGreedy(vector<City> cities, int startIndex
         auto nearestCityIterator = cities.begin();
 
         for (citiesIterator = cities.begin(); citiesIterator != cities.end(); citiesIterator++) {
-            auto distanceToNearest = currentCity.location.GetDistanceTo(&nearestCity.location);
-            auto distanceToTemp = currentCity.location.GetDistanceTo(&citiesIterator->location);
+            auto distanceToNearest = currentCity.location.GetDistanceTo(nearestCity.location);
+            auto distanceToTemp = currentCity.location.GetDistanceTo(citiesIterator->location);
 
             if (distanceToNearest > distanceToTemp) {
                 nearestCity = *citiesIterator;

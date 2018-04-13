@@ -6,7 +6,7 @@ namespace ts {
     public:
         double x, y;
 
-        double GetDistanceTo(Point *other);
+        double GetDistanceTo(Point other);
     };
 }
 
