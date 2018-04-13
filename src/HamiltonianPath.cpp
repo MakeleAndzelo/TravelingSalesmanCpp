@@ -1,4 +1,5 @@
 #include <limits>
+#include <iostream>
 #include "../headers/HamiltonianPath.h"
 
 using namespace ts;
@@ -7,13 +8,16 @@ vector<City> currentMinVector = vector<City>();
 double minLength = numeric_limits<double>::infinity();
 
 void HamiltonianPath::GetUsingBruteforce(vector<City> cities, int startIndex, int i) {
-    if (currentMinVector.empty())
-        currentMinVector.push_back(cities.at(startIndex));
+//    if (currentMinVector.empty()) {
+//        currentMinVector.push_back(cities.at((unsigned long long int) startIndex));
+//        cities.erase(cities.begin() + startIndex);
+//    }
 
     if (i == cities.size()) {
         double lenght = 0.0;
         for (int j = 0; j < cities.size() - 1; ++j)
-            lenght += cities[i].location.GetDistanceTo(cities[i + 1].location);
+            lenght += cities[j].location.GetDistanceTo(cities[j + 1].location);
+
         if (lenght < minLength) {
             currentMinVector = cities;
             minLength = lenght;
@@ -21,12 +25,17 @@ void HamiltonianPath::GetUsingBruteforce(vector<City> cities, int startIndex, in
         return;
     }
 
-    for (int j = i; i < cities.size(); ++i) {
+    for (int j = i; j < cities.size(); ++j) {
         swap(cities[i], cities[j]);
         GetUsingBruteforce(cities, startIndex, i + 1);
         swap(cities[i], cities[j]);
     }
+}
 
+vector<City> HamiltonianPath::GetBruteforceResult() {
+    if (currentMinVector.empty())
+        cout << "Vector is empty." << endl;
+    return currentMinVector;
 }
 
 vector<City> HamiltonianPath::GetUsingGreedy(vector<City> cities, int startIndex) {
