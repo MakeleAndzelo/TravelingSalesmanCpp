@@ -8,11 +8,6 @@ vector<City> currentMinVector = vector<City>();
 double minLength = numeric_limits<double>::infinity();
 
 void HamiltonianPath::GetUsingBruteforce(vector<City> cities, int startIndex, int i) {
-//    if (currentMinVector.empty()) {
-//        currentMinVector.push_back(cities.at((unsigned long long int) startIndex));
-//        cities.erase(cities.begin() + startIndex);
-//    }
-
     if (i == cities.size()) {
         double lenght = 0.0;
         for (int j = 0; j < cities.size() - 1; ++j)

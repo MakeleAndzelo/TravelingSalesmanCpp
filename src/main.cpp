@@ -1,22 +1,52 @@
 #include <iostream>
-#include "../headers/HamiltonianPath.h"
-#include "../headers/CitySeed.h"
+#include <GL/gl.h>
+#include <GL/glut.h>
+
+#include "../headers/PathDrawer.h"
 
 using namespace std;
 using namespace ts;
 
-int main() {
+void displayWindow();
+void reshapeWindow(int, int);
+
+vector<City> cities;
+
+int main(int argc, char **argv)
+{
     HamiltonianPath hamiltonianPath;
     CitySeed citySeed;
 
-    vector<City> cities = citySeed.SeedData(5);
+    cities = citySeed.SeedData(5);
     hamiltonianPath.GetUsingBruteforce(cities, 0);
 
     cities = hamiltonianPath.GetBruteforceResult();
 
-    for (auto city : cities) {
-        cout << city.name << endl;
-    }
+    glutInit(&argc, argv);
+    glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE);
+    glutInitWindowSize(600, 600);
+    glutCreateWindow("Travelling Salesman");
+    glutDisplayFunc(displayWindow);
+    glutIdleFunc(displayWindow);
+    glutReshapeFunc(reshapeWindow);
+    glutMainLoop();
 
     return 0;
+}
+
+void displayWindow()
+{
+    glClear(GL_COLOR_BUFFER_BIT);
+    PathDrawer drawer;
+    drawer.draw(cities);
+    glutSwapBuffers();
+}
+
+void reshapeWindow(int width, int height)
+{
+    glViewport(0, 0, (GLsizei)width, (GLsizei)height);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    glOrtho(0.0, 400, 0.0, 400, -1.0, 1.0);
+    glMatrixMode(GL_MODELVIEW);
 }
