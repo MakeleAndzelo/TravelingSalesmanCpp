@@ -2,7 +2,7 @@
 #include <GL/gl.h>
 #include <GL/glut.h>
 
-#include "../headers/PathDrawer.h"
+#include "../headers/Drawer.h"
 
 using namespace std;
 using namespace ts;
@@ -37,8 +37,9 @@ int main(int argc, char **argv)
 void displayWindow()
 {
     glClear(GL_COLOR_BUFFER_BIT);
-    PathDrawer drawer;
-    drawer.draw(cities);
+    Drawer drawer(cities);
+    drawer.drawPath();
+    drawer.drawCities();
     glutSwapBuffers();
 }
 

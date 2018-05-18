@@ -8,9 +8,13 @@
 #include "../headers/CitySeed.h"
 
 namespace ts {
-    class PathDrawer {
+    class Drawer {
+    private:
+        vector<City> cities;
     public:
-        void draw(vector<City>);
+        Drawer(vector<City>);
+        void drawCities();
+        void drawPath();
     };
 }
 
