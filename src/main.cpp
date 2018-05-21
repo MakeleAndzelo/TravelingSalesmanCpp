@@ -5,11 +5,15 @@
 using namespace std;
 using namespace ts;
 
+#define N 5
+
 int main() {
     HamiltonianPath hamiltonianPath;
     CitySeed citySeed;
 
-    vector<City> cities = citySeed.SeedData(5);
+    vector<int[]> neighbors = citySeed.SeedNeighborhood(N, 3);
+
+    vector<City> cities = citySeed.SeedData(N);
     hamiltonianPath.GetUsingBruteforce(cities, 0);
 
     cities = hamiltonianPath.GetBruteforceResult();
@@ -18,5 +22,8 @@ int main() {
         cout << city.name << endl;
     }
 
+    delete(&cities);
+    delete(&hamiltonianPath);
+    delete(&citySeed);
     return 0;
 }

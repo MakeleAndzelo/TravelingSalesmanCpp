@@ -8,10 +8,9 @@ vector<City> currentMinVector = vector<City>();
 double minLength = numeric_limits<double>::infinity();
 
 void HamiltonianPath::GetUsingBruteforce(vector<City> cities, int startIndex, int i) {
-//    if (currentMinVector.empty()) {
-//        currentMinVector.push_back(cities.at((unsigned long long int) startIndex));
-//        cities.erase(cities.begin() + startIndex);
-//    }
+    if (currentMinVector.empty()) {
+        swap(cities[0], cities[startIndex]);
+    }
 
     if (i == cities.size()) {
         double lenght = 0.0;
@@ -64,8 +63,4 @@ vector<City> HamiltonianPath::GetUsingGreedy(vector<City> cities, int startIndex
     }
 
     return newCities;
-}
-
-vector<City> HamiltonianPath::GetUsingGraph(vector<City> cities, int startIndex) {
-    return vector<City>();
 }

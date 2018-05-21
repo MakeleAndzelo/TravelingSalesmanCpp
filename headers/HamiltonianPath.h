@@ -12,8 +12,6 @@ namespace ts {
         vector<City> GetBruteforceResult();
 
         vector<City> GetUsingGreedy(vector<City> cities, int startIndex);
-
-        vector<City> GetUsingGraph(vector<City> cities, int startIndex);
     };
 }
 

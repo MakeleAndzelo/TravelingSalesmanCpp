@@ -1,5 +1,5 @@
 #include <random>
-#include <time.h>
+#include <ctime>
 #include "../headers/CitySeed.h"
 
 using namespace std;
@@ -21,4 +21,22 @@ vector<City> CitySeed::SeedData(int count) {
         cities[i] = newCity;
     }
     return cities;
+}
+
+vector<int[]> CitySeed::SeedNeighborhood(int count, int maxNeighbors) {
+    random_device randomDevice;
+
+    default_random_engine engine(randomDevice());
+    engine.seed((unsigned int)time(nullptr));
+    uniform_int_distribution<int> maxDist(0, maxNeighbors);
+    uniform_int_distribution<int> neighborsDist(0, count);
+
+    vector<int[]> neighbors = vector<int[]>((unsigned long long int) count);
+    for (int i = 0; i < count; ++i) {
+        for (int j = 0; j < maxDist(engine); ++j) {
+            int neighborhood[maxNeighbors];
+            neighborhood[j] = neighborsDist(engine);
+        }
+    }
+    return neighbors;
 }
