@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../headers/HamiltonianPath.h"
+#include "../headers/IPathSolver.h"
 #include "../headers/CitySeed.h"
 
 using namespace std;
@@ -8,22 +8,19 @@ using namespace ts;
 #define N 5
 
 int main() {
-    HamiltonianPath hamiltonianPath;
+    IPathSolver pathSolver;
     CitySeed citySeed;
 
-    vector<int[]> neighbors = citySeed.SeedNeighborhood(N, 3);
+    vector<City> startCities = citySeed.SeedData(N);
+    SolverResult solverResult = pathSolver.Solve(startCities, 0);
 
-    vector<City> cities = citySeed.SeedData(N);
-    hamiltonianPath.GetUsingBruteforce(cities, 0);
-
-    cities = hamiltonianPath.GetBruteforceResult();
-
-    for (auto city : cities) {
+    for (auto city : solverResult.result) {
         cout << city.name << endl;
     }
 
-    delete(&cities);
-    delete(&hamiltonianPath);
+    delete(&startCities);
+    delete(&pathSolver);
     delete(&citySeed);
+    delete(&solverResult);
     return 0;
 }
