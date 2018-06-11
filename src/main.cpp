@@ -62,9 +62,7 @@ IPathSolver *createSolver(enum SolverType type) {
     switch (type) {
         case Greedy:
             return new GreedySolver();
-            break;
         case Bruteforce:
             return new BruteforceSolver();
-            break;
     }
 }
