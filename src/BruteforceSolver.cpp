@@ -39,6 +39,6 @@ void BruteforceSolver::FindUsingBruteforce(vector<City> cities, int startIndex, 
     for (int j = i; j < cities.size(); ++j) {
         swap(cities[i], cities[j]);
         FindUsingBruteforce(cities, startIndex, i + 1);
-        swap(cities[i], cities[j]);
+            swap(cities[i], cities[j]);
     }
 }
