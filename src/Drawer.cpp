@@ -10,8 +10,16 @@ Drawer::Drawer(vector<City> cities)
 
 void Drawer::drawCities()
 {
-    glColor3d(0.50, 0.60, 0.92);
+    bool isFirst = true;
+
     for (auto city : cities) {
+        glColor3d(0, 0, 1);
+
+        if (isFirst) {
+            glColor3d(1, 0, 0);
+            isFirst = false;
+        }
+
         glRectd(city.location.x, city.location.y, city.location.x + 2, city.location.y + 2);
     }
 }

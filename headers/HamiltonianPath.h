@@ -13,7 +13,6 @@ namespace ts {
 
         vector<City> GetUsingGreedy(vector<City> cities, int startIndex);
 
-        vector<City> GetUsingGraph(vector<City> cities, int startIndex);
     };
 }
 

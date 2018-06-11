@@ -17,10 +17,8 @@ int main(int argc, char **argv)
     HamiltonianPath hamiltonianPath;
     CitySeed citySeed;
 
-    cities = citySeed.SeedData(5);
-    hamiltonianPath.GetUsingBruteforce(cities, 0);
-
-    cities = hamiltonianPath.GetBruteforceResult();
+    cities = citySeed.SeedData(10);
+    cities = hamiltonianPath.GetUsingGreedy(cities, 0);
 
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE);
