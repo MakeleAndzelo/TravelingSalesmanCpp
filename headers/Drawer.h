@@ -4,7 +4,6 @@
 #include <iostream>
 #include <GL/gl.h>
 #include <unistd.h>
-#include "../headers/HamiltonianPath.h"
 #include "../headers/CitySeed.h"
 
 namespace ts {
