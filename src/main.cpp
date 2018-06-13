@@ -1,8 +1,12 @@
 #include <iostream>
+#include <GL/gl.h>
+#include <GL/glut.h>
 #include "../headers/IPathSolver.h"
 #include "../headers/CitySeed.h"
 #include "../headers/GreedySolver.h"
 #include "../headers/BruteforceSolver.h"
+#include "../headers/Drawer.h"
+
 
 using namespace std;
 using namespace ts;
@@ -12,15 +16,31 @@ enum SolverType {
     Bruteforce
 };
 
+SolverResult result;
+
 IPathSolver *createSolver(enum SolverType type);
 
 SolverResult startMenu();
 
 void endMenu(SolverResult result);
 
-int main() {
-    SolverResult result = startMenu();
+void displayWindow();
+
+void reshapeWindow(int, int);
+
+int main(int argc, char **argv) {
+    result = startMenu();
     endMenu(result);
+
+    glutInit(&argc, argv);
+    glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE);
+    glutInitWindowSize(600, 600);
+    glutCreateWindow("Travelling Salesman");
+    glutDisplayFunc(displayWindow);
+    glutIdleFunc(displayWindow);
+    glutReshapeFunc(reshapeWindow);
+    glutMainLoop();
+
     return 0;
 }
 
@@ -40,7 +60,7 @@ SolverResult startMenu() {
     vector<City> startCities = citySeed.SeedData(citiesCout);
     SolverResult solverResult = solver->Solve(startCities, 0);
 
-    delete(solver);
+    delete (solver);
 
     return solverResult;
 }
@@ -66,3 +86,20 @@ IPathSolver *createSolver(enum SolverType type) {
             return new BruteforceSolver();
     }
 }
+
+void displayWindow() {
+    glClear(GL_COLOR_BUFFER_BIT);
+    Drawer drawer(result.result);
+    drawer.drawPath();
+    drawer.drawCities();
+    glutSwapBuffers();
+}
+
+void reshapeWindow(int width, int height) {
+    glViewport(0, 0, (GLsizei) width, (GLsizei) height);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    glOrtho(0.0, 400, 0.0, 400, -1.0, 1.0);
+    glMatrixMode(GL_MODELVIEW);
+}
+
