@@ -6,7 +6,7 @@
 namespace ts {
     class BruteforceSolver : public IPathSolver {
     public:
-        virtual SolverResult Solve(vector<City> cities, int startIndex);
+        SolverResult Solve(vector<City> cities, int startIndex) override;
 
     private:
         void FindUsingBruteforce(vector<City> cities, int startIndex, int i);

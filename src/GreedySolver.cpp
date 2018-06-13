@@ -6,7 +6,7 @@ using namespace ts;
 SolverResult GreedySolver::Solve(vector<City> cities, int startIndex) {
     SolverResult solverResult;
     solverResult.permutationCount = 0;
-    time_t currentTime = time(nullptr);
+    auto startTime = system_clock::now();
     vector<City> newCities = vector<City>();
     newCities.push_back(cities.at((unsigned long long int) startIndex));
 
@@ -33,6 +33,6 @@ SolverResult GreedySolver::Solve(vector<City> cities, int startIndex) {
     }
 
     solverResult.result = newCities;
-    solverResult.elapsedMiliseconds = time(nullptr) - currentTime;
+    solverResult.duration = system_clock::now() - startTime;
     return solverResult;
 }

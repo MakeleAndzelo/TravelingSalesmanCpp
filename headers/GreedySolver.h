@@ -6,7 +6,7 @@
 namespace ts {
     class GreedySolver : public IPathSolver {
     public:
-        virtual SolverResult Solve(vector<City> cities, int startIndex);
+        SolverResult Solve(vector<City> cities, int startIndex) override;
     };
 }
 

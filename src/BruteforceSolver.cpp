@@ -2,19 +2,21 @@
 #include "../headers/BruteforceSolver.h"
 #include <ctime>
 #include <cmath>
+#include <chrono>
 
 using namespace ts;
 using namespace std;
+using namespace chrono;
 
 vector<City> currentMinVector = vector<City>();
 double minLength = numeric_limits<double>::infinity();
 
 SolverResult BruteforceSolver::Solve(vector<City> cities, int startIndex) {
     SolverResult solverResult;
-    time_t currentTime = time(nullptr);
+    auto startTime = system_clock::now();
     FindUsingBruteforce(cities, startIndex, 0);
     solverResult.result = currentMinVector;
-    solverResult.elapsedMiliseconds = time(nullptr) - currentTime;
+    solverResult.duration = system_clock::now() - startTime;
     solverResult.permutationCount = (int) pow((double) cities.size(), (double) cities.size());
     return solverResult;
 }
