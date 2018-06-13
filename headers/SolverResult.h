@@ -3,16 +3,14 @@
 
 #include <vector>
 #include "City.h"
-#include <chrono>
 
 using namespace std;
-using namespace chrono;
 
 namespace ts {
     struct SolverResult {
     public:
         vector<City> result;
-        duration<double> duration;
+        time_t time;
         int permutationCount;
     };
 }

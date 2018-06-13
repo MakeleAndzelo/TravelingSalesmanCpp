@@ -50,7 +50,7 @@ void endMenu(SolverResult result) {
     cout << "Liczba permutacji:" << endl;
     cout << result.permutationCount << endl;
     cout << "Czas:" << endl;
-    cout << result.duration.count() << " ms" << endl;
+    cout << result.time << " ms" << endl;
 
     cout << "Trasa: ";
     for (auto city : result.result) {
