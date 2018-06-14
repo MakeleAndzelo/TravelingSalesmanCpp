@@ -1,0 +1,50 @@
+\hypertarget{classts_1_1_i_path_solver}{}\section{Dokumentacja klasy ts\+:\+:I\+Path\+Solver}
+\label{classts_1_1_i_path_solver}\index{ts\+::\+I\+Path\+Solver@{ts\+::\+I\+Path\+Solver}}
+
+
+{\ttfamily \#include $<$I\+Path\+Solver.\+h$>$}
+
+Diagram dziedziczenia dla ts\+:\+:I\+Path\+Solver\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classts_1_1_i_path_solver}
+\end{center}
+\end{figure}
+\subsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{structts_1_1_solver_result}{Solver\+Result}} \mbox{\hyperlink{classts_1_1_i_path_solver_a3d76684ac8ebf47a5edb3af4e0280811}{Solve}} (vector$<$ \mbox{\hyperlink{classts_1_1_city}{City}} $>$ cities, int start\+Index)=0
+\end{DoxyCompactItemize}
+
+
+\subsection{Opis szczegółowy}
+Interfejs bazowy do definiowania swoich implementacji wyznaczania cyklu hamiltona 
+
+\subsection{Dokumentacja funkcji składowych}
+\mbox{\Hypertarget{classts_1_1_i_path_solver_a3d76684ac8ebf47a5edb3af4e0280811}\label{classts_1_1_i_path_solver_a3d76684ac8ebf47a5edb3af4e0280811}} 
+\index{ts\+::\+I\+Path\+Solver@{ts\+::\+I\+Path\+Solver}!Solve@{Solve}}
+\index{Solve@{Solve}!ts\+::\+I\+Path\+Solver@{ts\+::\+I\+Path\+Solver}}
+\subsubsection{\texorpdfstring{Solve()}{Solve()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{structts_1_1_solver_result}{Solver\+Result}} ts\+::\+I\+Path\+Solver\+::\+Solve (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{classts_1_1_city}{City}} $>$}]{cities,  }\item[{int}]{start\+Index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Metoda wyznaczajaca cykl hamiltona
+
+
+\begin{DoxyParams}{Parametry}
+{\em cities} & vector miast \\
+\hline
+{\em start\+Index} & zmienna przechowujaca index miasta, od ktorego nalezy zaczac \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+
+\end{DoxyReturn}
+
+
+Implementowany w \mbox{\hyperlink{classts_1_1_greedy_solver_aa529740e0eaaadcd725e0ce23a34542f}{ts\+::\+Greedy\+Solver}} i \mbox{\hyperlink{classts_1_1_bruteforce_solver_aeacf43058fd0498a2789ddcf091a42eb}{ts\+::\+Bruteforce\+Solver}}.
+
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku\+:\begin{DoxyCompactItemize}
+\item 
+headers/\mbox{\hyperlink{_i_path_solver_8h}{I\+Path\+Solver.\+h}}\end{DoxyCompactItemize}
