@@ -11,21 +11,44 @@
 using namespace std;
 using namespace ts;
 
+/**
+ * Typ wyliczeniowy reprezentujacy zastosowane metody
+ */
 enum SolverType {
     Greedy,
     Bruteforce
 };
 
+/**
+ * @var result Zmienna globalna przechowujaca wyniki dzialania algorytmow
+ */
 SolverResult result;
 
+/**
+ * Funkcja tworzaca obiekt szukajacy drogi
+ *
+ * @param type zmienna opisuje, ktory sposob wybrac
+ */
 IPathSolver *createSolver(enum SolverType type);
 
+/**
+ * Funkcja wypisuje poczatek menu, pobiera opcje od uzytkownika
+ */
 SolverResult startMenu();
 
+/**
+ * Funkcja wypisuje koniec menu, wypisuje wyniki dzialania algorytmu
+ */
 void endMenu(SolverResult result);
 
+/**
+ * Funkcja inicjujaca okno OpenGl
+ */
 void displayWindow();
 
+/**
+ * Funkcja odpowiedzialna za zmienianie rozmiaru okna OpenGl
+ */
 void reshapeWindow(int, int);
 
 int main(int argc, char **argv) {
@@ -46,6 +69,7 @@ int main(int argc, char **argv) {
 
 SolverResult startMenu() {
     int citiesCout, solverType;
+    system("clear");
     cout << "Podaj liczbe miast";
     cin >> citiesCout;
     cout << "Podaj algorytm wykonania" << endl

@@ -7,11 +7,25 @@
 using namespace std;
 
 namespace ts {
+    /**
+     * Struktura opisujaca wynik dzialania algorytmow szukajacych drogi
+     */
     struct SolverResult {
     public:
+        /**
+         * @field result przechowuje vector uporzadkowanych miast
+         */
         vector<City> result;
+
+        /**
+         * @field time przechowuje czas dzialania algorytmu
+         */
         time_t time;
-        int permutationCount;
+
+        /**
+         * @field permutationCount przechowuje ilość permutacji
+         */
+        unsigned long long int permutationCount;
     };
 }
 

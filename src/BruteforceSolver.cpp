@@ -14,7 +14,8 @@ SolverResult BruteforceSolver::Solve(vector<City> cities, int startIndex) {
     FindUsingBruteforce(cities, startIndex, 0);
     solverResult.result = currentMinVector;
     solverResult.time = clock() - startTime;
-    solverResult.permutationCount = (int) pow((double) cities.size(), (double) cities.size());
+    solverResult.permutationCount = (unsigned long long int) pow((double) cities.size(), (double) cities.size());
+
     return solverResult;
 }
 

@@ -4,8 +4,20 @@
 #include "IPathSolver.h"
 
 namespace ts {
+    /**
+     * Klasa odpowiedzialna za szukanie drogi metoda Greedy
+     *
+     * @class GreedySolver
+     */
     class GreedySolver : public IPathSolver {
     public:
+        /**
+         * Metoda sortuje vector
+         *
+         * @param cities
+         * @param startIndex
+         * @return
+         */
         SolverResult Solve(vector<City> cities, int startIndex) override;
     };
 }
